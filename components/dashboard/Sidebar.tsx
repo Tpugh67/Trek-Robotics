@@ -20,7 +20,7 @@ const nav = [
 export default function Sidebar() {
   const pathname = usePathname()
 
-  const sections = [...new Set(nav.map(n => n.section))]
+  const sections = Array.from(new Set(nav.map(n => n.section)))
 
   return (
     <aside style={{
