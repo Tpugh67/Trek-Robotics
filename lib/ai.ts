@@ -48,9 +48,9 @@ export async function getAIResponse(
     const text = completion.choices[0].message.content ?? ''
 
     // Parse action block
-    const actionMatch = text.match(/<action>(.*?)<\/action>/s)
+    const actionMatch = text.match(/<action>([\s\S]*?)<\/action>/)
     let action: ParsedIntent | null = null
-    let reply = text.replace(/<action>.*?<\/action>/s, '').trim()
+    let reply = text.replace(/<action>[\s\S]*?<\/action>/, '').trim()
 
     if (actionMatch) {
       try {
